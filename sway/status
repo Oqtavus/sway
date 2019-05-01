@@ -1,0 +1,3 @@
+#!/bin/bash
+
+while true; echo "$(date +'%A, %d %B   %T')   $(pamixer --get-volume-human)   "; do sleep .1; done

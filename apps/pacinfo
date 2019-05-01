@@ -1,0 +1,44 @@
+#!/bin/bash
+
+cmd='\e[0;35m'
+key='\e[0;36m'
+opt='\e[0;33m'
+reset='\e[0m'
+
+echo -e "
+${opt} PACMAN
+${cmd} sudo pacman  ${reset}${key}-Sy   ${reset}${opt}                  ${reset}обновить репозитории
+${cmd} sudo pacman  ${reset}${key}-Su   ${reset}${opt}                  ${reset}обновить систему
+${cmd} sudo pacman  ${reset}${key}-Syu  ${reset}${opt}                  ${reset}обновить всё
+${cmd} sudo pacman  ${reset}${key}-Syyu ${reset}${opt}                  ${reset}обновить всё в обход ошибок
+${cmd} sudo pacman  ${reset}${key}-S    ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}установить пакет
+${cmd} sudo pacman  ${reset}${key}-Sw   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}загрузить пакет без установки
+${cmd} sudo pacman  ${reset}${key}-U    ${reset}${opt}[ССЫЛКА НА ПАКЕТ] ${reset}установить локальный пакет
+${cmd} sudo pacman  ${reset}${key}-Sc   ${reset}${opt}                  ${reset}удалить старые пакеты из кэша
+${cmd} sudo pacman  ${reset}${key}-Scc  ${reset}${opt}                  ${reset}удалить все пакеты из кэша
+${cmd} sudo pacman  ${reset}${key}-R    ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}удалить пакет
+${cmd} sudo pacman  ${reset}${key}-Rn   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}удалить пакет и файлы конфигурации
+${cmd} sudo pacman  ${reset}${key}-Rs   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}удалить пакет и зависимости
+${cmd} sudo pacman  ${reset}${key}-Rsc  ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}удалить пакет и зависящие от него пакеты
+${cmd} sudo pacman  ${reset}${key}-Rdd  ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}удалить пакет в обход зависимостей
+${cmd}      pacman  ${reset}${key}-Ss   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}найти пакет в репозитории
+${cmd}      pacman  ${reset}${key}-Si   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}информация о пакете в репозитории
+${cmd}      pacman  ${reset}${key}-Q    ${reset}${opt}                  ${reset}список всех пакетов в системе
+${cmd}      pacman  ${reset}${key}-Qo   ${reset}${opt}[ССЫЛКА НА ФАЙЛ]  ${reset}к какому пакету принадлежит файл
+${cmd}      pacman  ${reset}${key}-Qs   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}найти пакет в системе
+${cmd}      pacman  ${reset}${key}-Qi   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}информация о пакете в системе
+${cmd}      pacman  ${reset}${key}-Ql   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}список файлов пакета
+${cmd}      pacman  ${reset}${key}-Qk   ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}проверить наличие файлов пакета
+${cmd}      pacman  ${reset}${key}-Qkk  ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}проверить изменения файлов пакета
+${cmd}      pacman  ${reset}${key}-Qdt  ${reset}${opt}                  ${reset}пакеты-сироты
+${cmd}      pactree ${reset}${key}      ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}зависимости этого пакета
+${cmd}      pactree ${reset}${key}-r    ${reset}${opt}[НАЗВАНИЕ ПАКЕТА] ${reset}зависящие от этого пакета
+${cmd} sudo pacman  ${reset}${key}-Rs   ${reset}${opt}\$(pacman -Qdtq)  ${reset} удалить пакеты-сироты
+
+${opt} AUR
+${cmd}      git ${reset}${key}clone ${reset}${opt}https://aur.archlinux.org/package.git ${reset}клонируем пакет
+${cmd}      cd ${reset}${key}package ${reset}входим в папку с пакетом
+${cmd}      makepkg ${reset}${key}-sric ${reset}собираем и ставим
+${cmd}      cd ${reset}выходим из папки
+${cmd}      rm ${reset}${key}-rf ${reset}удаляем папку с пакетом
+"
