@@ -1,18 +1,18 @@
 #-SWAY--------------------------------------------------------------------------
 set         $mod                    Mod4
 floating_modifier                   $mod normal
-bindcode    $mod+Shift+54           reload
-bindcode    $mod+Shift+26           exit
+bindsym     $mod+Shift+c            reload
+bindsym     $mod+Shift+e            exit
 bindsym     $mod+Return             exec $terminal
 #-------------------------------------------------------------------------------
 
 #-WINDOW------------------------------------------------------------------------
-bindcode    $mod+Shift+24           kill
+bindsym     $mod+Shift+q            kill
 bindsym     $mod+Left               focus left
 bindsym     $mod+Down               focus down
 bindsym     $mod+Up                 focus up
 bindsym     $mod+Right              focus right
-bindcode    $mod+38                 focus parent
+bindsym     $mod+a                  focus parent
 bindsym     $mod+space              focus mode_toggle
 bindsym     $mod+Shift+Left         move left
 bindsym     $mod+Shift+Down         move down
@@ -20,12 +20,12 @@ bindsym     $mod+Shift+Up           move up
 bindsym     $mod+Shift+Right        move right
 bindsym     $mod+Ctrl+Right         move workspace to output right
 bindsym     $mod+Ctrl+Left          move workspace to output left
-bindcode    $mod+43                 splith
-bindcode    $mod+55                 splitv
-bindcode    $mod+39                 layout stacking
-bindcode    $mod+25                 layout tabbed
-bindcode    $mod+26                 layout toggle split
-bindcode    $mod+41                 fullscreen
+bindsym     $mod+b                  splith
+bindsym     $mod+v                  splitv
+bindsym     $mod+s                  layout stacking
+bindsym     $mod+w                  layout tabbed
+bindsym     $mod+e                  layout toggle split
+bindsym     $mod+f                  fullscreen
 bindsym     $mod+Shift+space        floating toggle
 bindsym     $mod+Shift+minus        move scratchpad
 bindsym     $mod+minus              scratchpad show
@@ -37,7 +37,7 @@ mode        "  Масштаб  " {
     bindsym Return                  mode "default"
     bindsym Escape                  mode "default"
 }
-bindcode    $mod+27                 mode "  Масштаб  "
+bindsym     $mod+r                  mode "  Масштаб  "
 #-------------------------------------------------------------------------------
 
 #-WORKSPACE---------------------------------------------------------------------
@@ -74,9 +74,8 @@ bindsym     $mod+Shift+0            move container to workspace $WS0
 #-------------------------------------------------------------------------------
 
 #-APPS--------------------------------------------------------------------------
-set         $browser                Chromium
+set         $browser                firefox
 set         $editor                 gedit
-set         $code                   code-oss
 set         $file                   Nautilus
 set         $pdf                    evince
 set         $image                  eog
@@ -85,10 +84,9 @@ set         $media                  mpv
 set         $torrent                transmission-gtk
 set         $monitor                gnome-system-monitor
 set         $diskinfo               gnome-disks
-set         $terminal               termite
+set         $terminal               alacritty
 assign      [class="$browser"]      $WS1
 assign      [app_id="$editor"]      $WS2
-assign      [class="$code"]         $WS2
 assign      [app_id="$file"]        $WS3
 assign      [app_id="$pdf"]         $WS4
 assign      [app_id="$image"]       $WS4
@@ -163,7 +161,7 @@ bindsym --whole-window --border $mod+button2 exec pamixer --allow-boost --set-vo
 #-------------------------------------------------------------------------------
 
 #-LAUNCHER----------------------------------------------------------------------
-bindcode $mod+40 exec dmenu_run -fn Noto-11:bold -nb "$main" -nf "$text" -sb "$focus" -sf "$text" -h 27
+bindsym $mod+d exec dmenu_run -fn Noto-11:bold -nb "$main" -nf "$text" -sb "$focus" -sf "$text" -h 27
 #-------------------------------------------------------------------------------
 
 #-NOTIFICATION------------------------------------------------------------------

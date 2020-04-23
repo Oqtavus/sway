@@ -16,19 +16,19 @@ sudo pacman -Syu
 step 'Sway'
 #-------------------------------------------------------------------------------
 
-sudo pacman -S xorg-server-xwayland mesa pacman-contrib sway swayidle termite grim slurp mako
+sudo pacman -S xorg-server-xwayland mesa sway swayidle alacritty dmenu grim slurp mako xdg-user-dirs
 
 #-------------------------------------------------------------------------------
 step 'Soft'
 #-------------------------------------------------------------------------------
 
-sudo pacman -S wget git neofetch ntfs-3g pulseaudio pamixer noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-liberation polkit-gnome nautilus gvfs-mtp file-roller unrar ffmpegthumbnailer gnome-disk-utility gnome-themes-extra gnome-system-monitor shotwell evince chromium transmission-gtk youtube-dl php mpv gedit eog code papirus-icon-theme materia-gtk-theme
+sudo pacman -S wget neofetch ntfs-3g pulseaudio pamixer noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-liberation polkit-gnome nautilus gvfs-mtp file-roller unrar ffmpegthumbnailer gnome-disk-utility gnome-themes-extra gnome-system-monitor shotwell evince firefox transmission-gtk youtube-dl mpv gedit eog arc-icon-theme arc-gtk-theme
 
 #-------------------------------------------------------------------------------
 step 'Swap'
 #-------------------------------------------------------------------------------
 
-sudo fallocate -l 1G    /swapfile
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 status=progress
 sudo chmod 600          /swapfile
 sudo mkswap             /swapfile
 sudo swapon             /swapfile
@@ -37,17 +37,12 @@ sudo sh -c 'echo /swapfile none swap defaults 0 0 >> /etc/fstab'
 #-------------------------------------------------------------------------------
 step 'Config'
 #-------------------------------------------------------------------------------
-
-mkdir -p ~/Desktop
-mkdir -p ~/Documents
-mkdir -p ~/Domains
-mkdir -p ~/Downloads
+xdg-user-dirs-update
 mkdir -p ~/.config
 
-cp      $SCRIPT_DIR/bash/.bashrc            ~/
+cp  -f  $SCRIPT_DIR/bash/.bashrc            ~/
 cp  -rf $SCRIPT_DIR/sway                    ~/.config/
 cp  -rf $SCRIPT_DIR/mpv                     ~/.config/
-cp  -rf $SCRIPT_DIR/termite                 ~/.config/
 
 sudo chown -R qtm:users                     $SCRIPT_DIR/apps
 sudo chmod -R 777                           $SCRIPT_DIR/apps

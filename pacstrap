@@ -27,7 +27,7 @@ echo 'Server = https://archlinux.ip-connect.vn.ua/$repo/os/$arch' >> /etc/pacman
 step 'Pacstrap'
 #-------------------------------------------------------------------------------
 
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel linux linux-firmware pacman-contrib polkit networkmanager git nano
 
 #-------------------------------------------------------------------------------
 step 'Fstab'

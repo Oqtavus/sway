@@ -41,4 +41,7 @@ ${cmd}      cd ${reset}${key}package ${reset}входим в папку с па�
 ${cmd}      makepkg ${reset}${key}-sric ${reset}собираем и ставим
 ${cmd}      cd ${reset}выходим из папки
 ${cmd}      rm ${reset}${key}-rf ${reset}удаляем папку с пакетом
+
+${opt} DD
+${cmd}      dd ${reset}${key}bs=4M ${opt}if=1.iso of=/dev/sdc ${key}status=progress oflag=sync
 "
