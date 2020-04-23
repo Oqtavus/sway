@@ -28,3 +28,19 @@ alias srv='php -S localhost:8000'
 #-PACMAN------------------------------------------------------------------------
 alias upd='sudo pacman -Syu'
 #-------------------------------------------------------------------------------
+
+#-SWAY--------------------------------------------------------------------------
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
+alias app='swaymsg -t get_tree'
+alias vol='pamixer --allow-boost --set-volume'
+#-------------------------------------------------------------------------------
+
+#-INTERFACE---------------------------------------------------------------------
+alias fnt='gsettings set org.gnome.desktop.interface font-name'
+alias thm='gsettings set org.gnome.desktop.interface gtk-theme' 
+alias icn='gsettings set org.gnome.desktop.interface icon-theme'
+alias lft='gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"'
+alias rgt='gsettings set org.gnome.desktop.wm.preferences button-layout ":close,minimize,maximize"'
+#-------------------------------------------------------------------------------
